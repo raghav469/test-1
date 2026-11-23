@@ -59,3 +59,13 @@ The backend runs on port `5000` by default.
 | `DELETE` | `/api/employees/:id` | Delete an employee |
 
 Employee status is `active` or `inactive`; new records default to `active`.
+
+## Deploy the backend to Vercel
+
+Deploy the backend as a separate Vercel project so the frontend project can remain unchanged:
+
+1. Import this repository into Vercel and set the project root directory to `backend`.
+2. Use the Express framework preset and keep the default build settings.
+3. Add `MONGO_URI` to the backend project's Production environment variables. Use a MongoDB Atlas connection string; a local `localhost` URI is not reachable from Vercel.
+4. Deploy and verify `https://<backend-project>.vercel.app/api/health` returns JSON with `status: "ok"` and `database: "connected"`.
+5. In the frontend Vercel project, set `VITE_API_URL` to `https://<backend-project>.vercel.app/api` and redeploy.
