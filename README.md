@@ -51,6 +51,7 @@ The backend runs on port `5000` by default.
 
 | Method | Endpoint | Description |
 | --- | --- | --- |
+| `GET` | `/` | List available API endpoints |
 | `GET` | `/api/health` | Check API and database connection |
 | `GET` | `/api/employees` | List employees |
 | `GET` | `/api/employees/:id` | Get one employee |

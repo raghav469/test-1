@@ -9,6 +9,15 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.get('/', (req, res) => {
+  res.json({
+    service: 'Employee Management API',
+    endpoints: {
+      health: '/api/health',
+      employees: '/api/employees',
+    },
+  });
+});
 app.use('/api', async (req, res, next) => {
   try {
     await connectDB();
